@@ -1,0 +1,37 @@
+{{outlet}}
+Hello
+<div>
+  Read all:
+  <ul>
+    {{#each model as |user|}}
+      <li>{{user.name}}, {{user.id}}</li>
+    {{/each}}
+  </ul>
+</div>
+
+<div>
+  {{input value=newusername placeholder=" s"}}<br>
+    {{input value=newloginName placeholder=" s"}}<br>
+      {{input value=newpassword placeholder=" s"}}<br>
+        {{input value=newemail placeholder=" s"}}<br>
+          {{input value=newcountry placeholder=" s"}}<br>
+            {{input value=newadress placeholder=" s"}}<br>
+  <button {{action 'createUser'}}>Create</button>
+</div>
+<div>
+
+            {{input value=destroyId placeholder=" id"}}<br>
+  <button {{action 'deleteUser'}}>delet</button>
+</div>
+
+<div>
+  id{{input value=destroyId placeholder=" id"}}<br>
+
+  {{input value=name placeholder=" s"}}<br>
+    {{input value=user placeholder=" s"}}<br>
+      {{input value=password placeholder=" s"}}<br>
+        {{input value=email placeholder=" s"}}<br>
+          {{input value=country placeholder=" s"}}<br>
+            {{input value=adress placeholder=" s"}}<br>
+  <button {{action 'updateUser'}}>Update</button>
+</div>

@@ -1,37 +1,94 @@
 {{outlet}}
-Hello
-<div>
-  Read all:
-  <ul>
-    {{#each model as |user|}}
-      <li>{{user.name}}, {{user.id}}</li>
-    {{/each}}
-  </ul>
-</div>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>crud</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+  $(document).ready(function(){
+      $("#flip").click(function(){
+          $("#panel").slideDown("slow");
+      });
+  });
+  $(document).ready(function(){
+      $("#flip2").click(function(){
+          $("#panel2").slideDown("slow");
+      });
+  });
+  $(document).ready(function(){
+      $("#flip3").click(function(){
+          $("#panel3").slideDown("slow");
+      });
+  });
+  </script>
+</head>
+<body>
 
-<div>
-  {{input value=newusername placeholder=" s"}}<br>
-    {{input value=newloginName placeholder=" s"}}<br>
-      {{input value=newpassword placeholder=" s"}}<br>
-        {{input value=newemail placeholder=" s"}}<br>
-          {{input value=newcountry placeholder=" s"}}<br>
-            {{input value=newadress placeholder=" s"}}<br>
+<h4>User managament</h4>
+  <div id="flip">Click to create new user</div>
+<div id = "panel">
+
+  <h5>Create new user: </h5>
+  Name {{input value=newloginName placeholder="name"}}<br>
+  Username {{input value=newusername placeholder="username"}}<br>
+      Password {{input value=newpassword placeholder="password"}}<br>
+      Email {{input value=newemail placeholder="email"}}<br>
+        Country {{input value=newcountry placeholder="country"}}<br>
+          Adress {{input value=newadress placeholder="adress"}}<br>
   <button {{action 'createUser'}}>Create</button>
 </div>
-<div>
+<div id="flip2">Click to delete user by ID: </div>
+<div id = "panel2">
 
-            {{input value=destroyId placeholder=" id"}}<br>
-  <button {{action 'deleteUser'}}>delet</button>
+  ID: {{input value=destroyId placeholder=" id"}}<br>
+  <button {{action 'deleteUser'}}>Delete</button>
 </div>
+<div id="flip3">Click to update user by ID </div>
+<div id = "panel3">
 
-<div>
-  id{{input value=destroyId placeholder=" id"}}<br>
-
-  {{input value=name placeholder=" s"}}<br>
-    {{input value=user placeholder=" s"}}<br>
-      {{input value=password placeholder=" s"}}<br>
-        {{input value=email placeholder=" s"}}<br>
-          {{input value=country placeholder=" s"}}<br>
-            {{input value=adress placeholder=" s"}}<br>
+  id : {{input value=destroyId placeholder=" id"}}<br>
+Name  {{input value=name placeholder=" name"}}<br>
+  Username  {{input value=user placeholder=" username"}}<br>
+    Password  {{input value=password placeholder="password"}}<br>
+    Email    {{input value=email placeholder="email"}}<br>
+      Country    {{input value=country placeholder="country"}}<br>
+        Adress    {{input value=adress placeholder="adress"}}<br>
   <button {{action 'updateUser'}}>Update</button>
 </div>
+<div>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Country</th>
+    <th>Adress</th>
+
+  </tr>
+    {{#each model as |user|}}
+    <tr>
+        <td> {{user.id}}</td>
+
+
+        <td> {{user.name}}</td>
+
+
+        <td> {{user.user}}</td>
+
+
+        <td>  {{user.email}}</td>
+
+        <td>  {{user.country}}</td>
+
+        <td> {{user.adress}} </td>
+    </tr>
+
+    {{/each}}
+
+
+</table>
+</div>
+</body>
+</html>
